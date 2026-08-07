@@ -67,7 +67,7 @@ const AddProduct = () => {
   }
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-base-200 p-6">
+    <div className="h-[calc(100vh-64px)] flex justify-center items-center bg-base-200 p-6">
       <div className="card w-full max-w-md bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="text-2xl font-bold text-center mb-4">
