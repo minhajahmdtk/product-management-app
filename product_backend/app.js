@@ -8,11 +8,11 @@ require('dotenv').config();
 const db = require('./config/db');
 db();
 
+// Disable Express version information
+app.disable('x-powered-by');
+
 // Routes
 const Product = require('./routes/productRoutes');
-
-// Models
-const models = require('./models/Product');
 
 app.use(
   cors({
