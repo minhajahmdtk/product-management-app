@@ -1,25 +1,30 @@
-const express=require('express');
-const app=express()
-const port=3000;
-const cors=require('cors')
-require('dotenv').config()
-const dotenv=require('dotenv')
-const db=require('./config/db')
+const express = require('express');
+const app = express();
+const port = 3000;
+const cors = require('cors');
+
+require('dotenv').config();
+
+const db = require('./config/db');
 db();
 
 // Routes
-const Product=require('./routes/productRoutes');
+const Product = require('./routes/productRoutes');
 
 // Models
-const models=require('./models/Product')
+const models = require('./models/Product');
 
+app.use(
+  cors({
+    origin: 'http://localhost:5173',
+  })
+);
 
-app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/products',Product)
+app.use('/products', Product);
 
-app.listen(port,()=>{
-  console.log(`server listening on port ${port}`)
-})
+app.listen(port, () => {
+  console.log(`server listening on port ${port}`);
+});
